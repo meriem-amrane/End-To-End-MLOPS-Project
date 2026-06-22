@@ -55,6 +55,13 @@ def load_json(path: Path) -> ConfigBox:
         content = json.load(f)
     logger.info(f"json file loaded successfully from: {path}")
     return ConfigBox(content)
-    
+
+@ensure_annotations
+def get_size(path: Path) -> str:
+    """
+    Get the size of a file in bytes.
+    """
+    size = os.path.getsize(path)
+    return size
 
 
